@@ -1,8 +1,6 @@
 import { Inter } from '@next/font/google'
 import Head from 'next/head'
-import Body from '../components/Body'
-import Tag from '../components/Tag'
-import Title from '../components/Title'
+import Post from '../components/organisms/Post'
 import styles from '../styles/Home.module.css'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -32,6 +30,11 @@ export default function Home() {
 
   _piyopiyo_
   `
+
+  const tags = [
+    'fugafuga'
+  ]
+  
   return (
     <>
       <Head>
@@ -41,9 +44,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <Title title='hogehoge' />
-        <Tag tag='fugafuga' />
-        <Body body={body} />
+        <Post title='hogehoge' tags={tags} created={(new Date()).toDateString()} body={body} />
       </main>
     </>
   )
