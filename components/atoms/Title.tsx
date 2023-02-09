@@ -1,4 +1,4 @@
-import styles from '../styles/Title.module.css'
+import styles from '../../styles/atoms/Title.module.css'
 
 const Title = (props: { title: string }): JSX.Element => {
   return (
