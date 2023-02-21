@@ -30,6 +30,8 @@ export default function Home() {
   * italic
 
   _piyopiyo_
+
+  [https://numnam.net](https://numnam.net)
   `
 
   const tags = [

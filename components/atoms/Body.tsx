@@ -1,16 +1,21 @@
-import { marked } from 'marked';
-import { useEffect } from 'react';
+import ReactMarkdown from 'react-markdown';
+import LinkCard from './LinkCard';
 
 const Body = (props: { body: string }): JSX.Element => {
-  useEffect(() => {
-    const target = document.getElementById('content')
-    if (target) {
-      target.innerHTML = marked.parse(props.body)
-    }
-  }, [props.body])
   
   return (
-    <div id='content'></div>
+    <div id='content'>
+      <ReactMarkdown
+        children={props.body}
+        components={{
+          a({href}) {
+            return (
+              <LinkCard link={href} />
+            )
+          }
+        }}
+      />
+    </div>
   )
 }
 
