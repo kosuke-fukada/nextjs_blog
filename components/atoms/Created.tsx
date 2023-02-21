@@ -1,4 +1,4 @@
-import styles from '../../styles/atoms/Created.module.css'
+import styles from '../../styles/atoms/Created.module.scss'
 
 const Created = (props: { created: string }): JSX.Element => {
   return (
