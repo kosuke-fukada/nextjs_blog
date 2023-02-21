@@ -1,5 +1,6 @@
 import { Inter } from '@next/font/google'
 import Head from 'next/head'
+import Header from '../components/molecules/Header'
 import Post from '../components/organisms/Post'
 import styles from '../styles/Home.module.css'
 
@@ -44,6 +45,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
+        <Header />
         <Post title='hogehoge' tags={tags} created={(new Date()).toDateString()} body={body} />
       </main>
     </>

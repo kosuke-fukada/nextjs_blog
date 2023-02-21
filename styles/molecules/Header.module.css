@@ -1,0 +1,21 @@
+.header {
+  position: fixed;
+  top: 0;
+  padding: 1rem;
+  width: 100vw;
+}
+
+.logo {
+  text-align: center;
+}
+
+.menu_bars {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.5rem;
+  width: 40px;
+  font-size: 25px;
+}
