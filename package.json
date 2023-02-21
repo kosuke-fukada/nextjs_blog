@@ -28,6 +28,7 @@
     "typescript": "4.9.4"
   },
   "devDependencies": {
-    "microcms-js-sdk": "^2.3.2"
+    "microcms-js-sdk": "^2.3.2",
+    "sass": "^1.58.3"
   }
 }
