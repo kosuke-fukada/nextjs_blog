@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import styles from '../../styles/atoms/LinkCard.module.scss'
 
 const LinkCard = (props: { link: string|undefined }): JSX.Element => {
   const [ogps, setOgps] = useState<Array<{
@@ -43,11 +44,19 @@ const LinkCard = (props: { link: string|undefined }): JSX.Element => {
     return ogp.prop === 'description'
   })
   return (
-    <a href={props.link} target="_blank" rel="noreferrer">
-      <div>
-        <img src={image?.content ?? ''} alt={title?.content ?? ''} width={100} height={70} />
+    <a
+      href={props.link}
+      target="_blank"
+      rel="noreferrer"
+    >
+      <div className={styles.link_card_wrapper}>
+        <img
+          className={styles.link_card_image}
+          src={image?.content ?? ''}
+          alt={title?.content ?? ''}
+        />
         <h3>{title?.content}</h3>
-        <p>{description?.content}</p>
+        <p className={styles.link_card_description}>{description?.content}</p>
       </div>
     </a>
   )

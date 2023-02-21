@@ -109,12 +109,12 @@ a {
 .sidemenu_wrapper {
   transform: translateX(110%);
   transition: transform 0.5s;
-}
 
-.sidemenu_wrapper-enter-done {
-  transform: translateX(0);
-}
+  &-enter-done {
+    transform: translateX(0);
+  }
 
-.sidemenu_wrapper-exit-done {
-  transform: translateX(110%);
+  &-exit-done {
+    transform: translateX(110%);
+  }
 }
