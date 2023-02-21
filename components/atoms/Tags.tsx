@@ -1,4 +1,4 @@
-import styles from '../../styles/atoms/Tags.module.css'
+import styles from '../../styles/atoms/Tags.module.scss'
 
 const Tags = (props: { tags: Array<string> }): JSX.Element => {
   return (

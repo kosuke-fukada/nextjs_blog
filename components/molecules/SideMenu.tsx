@@ -1,4 +1,4 @@
-import styles from '../../styles/molecules/SideMenu.module.css'
+import styles from '../../styles/molecules/SideMenu.module.scss'
 
 const SideMenu = (props: {
   menuList: Array<{
