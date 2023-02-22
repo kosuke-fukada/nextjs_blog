@@ -11,12 +11,12 @@ const Header = (): JSX.Element => {
   const menuList = [
     {
       title: 'hogehoge',
-      link: '/hogehoge'
+      link: '/hogehoge',
     },
     {
       title: 'fugafuga',
-      link: '/fugafuga'
-    }
+      link: '/fugafuga',
+    },
   ]
   return (
     <div className={styles.header}>

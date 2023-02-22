@@ -1,9 +1,9 @@
-import ReactMarkdown from 'react-markdown';
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import { atelierHeathDark } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
-import LinkCard from './LinkCard';
-import { isValidElement } from 'react';
-import remarkGfm from 'remark-gfm';
+import ReactMarkdown from 'react-markdown'
+import SyntaxHighlighter from 'react-syntax-highlighter'
+import { atelierHeathDark } from 'react-syntax-highlighter/dist/cjs/styles/hljs'
+import LinkCard from './LinkCard'
+import { isValidElement } from 'react'
+import remarkGfm from 'remark-gfm'
 
 const Body = (props: { body: string }): JSX.Element => {
 
@@ -53,7 +53,7 @@ const Body = (props: { body: string }): JSX.Element => {
                 {children}
               </code>
             )
-          }
+          },
         }}
       />
     </div>

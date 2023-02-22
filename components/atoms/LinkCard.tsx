@@ -22,12 +22,12 @@ const LinkCard = (props: { link: string|undefined }): JSX.Element => {
         if (!property) {
           return {
             prop: '',
-            content: ''
+            content: '',
           }
         }
         return {
           prop: property.replace('og:', ''),
-          content: headEl.getAttribute('content') ?? ''
+          content: headEl.getAttribute('content') ?? '',
         }
       }).filter(ogp => {
         return ogp.prop !== ''
