@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react"
-import { useClient } from "../../hooks/useClient"
+import { useEffect, useState } from 'react'
+import { useClient } from '../../hooks/useClient'
 import styles from '../../styles/atoms/LinkCard.module.scss'
 
 const LinkCard = (props: { link: string|undefined }): JSX.Element => {

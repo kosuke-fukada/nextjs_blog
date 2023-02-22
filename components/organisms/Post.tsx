@@ -1,5 +1,5 @@
-import Body from "../atoms/Body"
-import PostHead from "../molecules/PostHead"
+import Body from '../atoms/Body'
+import PostHead from '../molecules/PostHead'
 
 const Post = (props: {
   title: string,
