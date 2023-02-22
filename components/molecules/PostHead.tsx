@@ -1,6 +1,6 @@
-import Created from '../atoms/Created';
-import Tags from '../atoms/Tags';
-import Title from '../atoms/Title';
+import Created from '../atoms/Created'
+import Tags from '../atoms/Tags'
+import Title from '../atoms/Title'
 
 const PostHead = (props: {
   title: string,

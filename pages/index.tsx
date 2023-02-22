@@ -41,7 +41,7 @@ export default function Home() {
   `
 
   const tags = [
-    'fugafuga'
+    'fugafuga',
   ]
 
   return (
