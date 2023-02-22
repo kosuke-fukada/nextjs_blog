@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { useClient } from "../../hooks/useClient"
 import styles from '../../styles/atoms/LinkCard.module.scss'
 
 const LinkCard = (props: { link: string|undefined }): JSX.Element => {
@@ -6,6 +7,7 @@ const LinkCard = (props: { link: string|undefined }): JSX.Element => {
     prop: string,
     content: string
   }>>([])
+  const isClient = useClient()
   useEffect(() => {
     const getOgps = async () => {
       if (!props.link) {
@@ -44,21 +46,25 @@ const LinkCard = (props: { link: string|undefined }): JSX.Element => {
     return ogp.prop === 'description'
   })
   return (
-    <a
-      href={props.link}
-      target="_blank"
-      rel="noreferrer"
-    >
-      <div className={styles.link_card_wrapper}>
-        <img
-          className={styles.link_card_image}
-          src={image?.content ?? ''}
-          alt={title?.content ?? ''}
-        />
-        <h3>{title?.content}</h3>
-        <p className={styles.link_card_description}>{description?.content}</p>
-      </div>
-    </a>
+    <>
+      { isClient &&
+        <a
+          href={props.link}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <div className={styles.link_card_wrapper}>
+            <img
+              className={styles.link_card_image}
+              src={image?.content ?? ''}
+              alt={title?.content ?? ''}
+            />
+            <h3>{title?.content}</h3>
+            <p className={styles.link_card_description}>{description?.content}</p>
+          </div>
+        </a>
+      }
+    </>
   )
 }
 
