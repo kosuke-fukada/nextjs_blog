@@ -32,12 +32,18 @@ export default function Home() {
   _piyopiyo_
 
   [https://numnam.net](https://numnam.net)
+
+  ~~~js
+  const hoge = 'hoge'
+
+  console.log(hoge)
+  ~~~
   `
 
   const tags = [
     'fugafuga'
   ]
-  
+
   return (
     <>
       <Head>
