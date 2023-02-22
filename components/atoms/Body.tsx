@@ -2,6 +2,7 @@ import ReactMarkdown from 'react-markdown';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { atelierHeathDark } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 import LinkCard from './LinkCard';
+import { isValidElement } from 'react';
 
 const Body = (props: { body: string }): JSX.Element => {
 
@@ -10,12 +11,31 @@ const Body = (props: { body: string }): JSX.Element => {
       <ReactMarkdown
         children={props.body}
         components={{
-          // TODO: Hydration error
-          // a({href}) {
-          //   return (
-          //     <LinkCard link={href} />
-          //   )
-          // },
+          p({ children }) {
+            if (
+              Array.isArray(children)
+              && children[0]
+              && isValidElement(children[0])
+              && children[0].props.node?.tagName === 'a'
+            ) {
+              return (
+                <div>
+                  {children}
+                </div>
+              )
+            } else {
+              return (
+                <p>
+                  {children}
+                </p>
+              )
+            }
+          },
+          a({ href }) {
+            return (
+              <LinkCard link={href} />
+            )
+          },
           code({ node, inline, className, children, style, ...props }) {
             const match = /language-(\w+)/.exec(className || '')
             return !inline && match ? (
