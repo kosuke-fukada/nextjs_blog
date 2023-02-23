@@ -3,7 +3,7 @@ import { useClient } from '../../hooks/useClient'
 import styles from '../../styles/atoms/LinkCard.module.scss'
 import { Href } from '../../types/atoms/Href'
 
-const LinkCard = (props: { link: Href }): JSX.Element => {
+const LinkCard = (props: { href: Href }): JSX.Element => {
   const [ogps, setOgps] = useState<Array<{
     prop: string,
     content: string
@@ -11,13 +11,13 @@ const LinkCard = (props: { link: Href }): JSX.Element => {
   const isClient = useClient()
   useEffect(() => {
     const getOgps = async () => {
-      if (!props.link) {
+      if (!props.href) {
         return
       }
-      const html = await fetch(props.link.toString())
-      const text = await html.text()
-      const el = new DOMParser().parseFromString(text, 'text/html')
-      const headEls = el.head.children
+      const source = await fetch(props.href.toString())
+      const text = await source.text()
+      const html = new DOMParser().parseFromString(text, 'text/html')
+      const headEls = html.head.children
       setOgps(Array.from(headEls).map(headEl => {
         const property = headEl.getAttribute('property')
         if (!property) {
@@ -35,7 +35,7 @@ const LinkCard = (props: { link: Href }): JSX.Element => {
       }))
     }
     getOgps()
-  }, [props.link])
+  }, [props.href])
 
   const image = ogps.find(ogp => {
     return ogp.prop === 'image'
@@ -50,7 +50,7 @@ const LinkCard = (props: { link: Href }): JSX.Element => {
     <>
       { isClient &&
         <a
-          href={props.link.toString()}
+          href={props.href.toString()}
           target="_blank"
           rel="noreferrer"
         >

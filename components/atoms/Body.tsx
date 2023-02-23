@@ -42,7 +42,7 @@ const Body = (props: { body: BodyType }): JSX.Element => {
               )
             }
             return (
-              <LinkCard link={new Href(href)} />
+              <LinkCard href={new Href(href)} />
             )
           },
           code({ node, inline, className, children, style, ...props }) {
