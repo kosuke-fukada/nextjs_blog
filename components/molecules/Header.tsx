@@ -4,19 +4,20 @@ import { useRef, useState } from 'react'
 import { CSSTransition } from 'react-transition-group'
 import styles from '../../styles/molecules/Header.module.scss'
 import SideMenu from './SideMenu'
+import { MenuListItem } from '../../types/molecules/MenuListItem'
 
 const Header = (): JSX.Element => {
   const [open, setOpen] = useState(false)
   const nodeRef = useRef(null)
-  const menuList = [
-    {
-      title: 'hogehoge',
-      link: '/hogehoge',
-    },
-    {
-      title: 'fugafuga',
-      link: '/fugafuga',
-    },
+  const menuList: Array<MenuListItem> = [
+    new MenuListItem(
+      'hogehoge',
+      '/hogehoge'
+    ),
+    new MenuListItem(
+      'fugafuga',
+      '/fugafuga'
+    ),
   ]
   return (
     <div className={styles.header}>

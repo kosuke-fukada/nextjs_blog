@@ -1,12 +1,13 @@
 import styles from '../../styles/atoms/Tags.module.scss'
+import { Tag } from '../../types/atoms/Tag'
 
-const Tags = (props: { tags: Array<string> }): JSX.Element => {
+const Tags = (props: { tags: Array<Tag> }): JSX.Element => {
   return (
     <div>
       {
-        props.tags.map((tag: string, index: number) => {
+        props.tags.map((tag: Tag, index: number) => {
           return (
-            <span className={styles.tag} key={index}>{ tag }</span>
+            <span className={styles.tag} key={index}>{ tag.toString() }</span>
           )
         })
       }

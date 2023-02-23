@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
 import { useClient } from '../../hooks/useClient'
 import styles from '../../styles/atoms/LinkCard.module.scss'
+import { Href } from '../../types/atoms/Href'
 
-const LinkCard = (props: { link: string|undefined }): JSX.Element => {
+const LinkCard = (props: { link: Href }): JSX.Element => {
   const [ogps, setOgps] = useState<Array<{
     prop: string,
     content: string
@@ -13,7 +14,7 @@ const LinkCard = (props: { link: string|undefined }): JSX.Element => {
       if (!props.link) {
         return
       }
-      const html = await fetch(props.link)
+      const html = await fetch(props.link.toString())
       const text = await html.text()
       const el = new DOMParser().parseFromString(text, 'text/html')
       const headEls = el.head.children
@@ -49,7 +50,7 @@ const LinkCard = (props: { link: string|undefined }): JSX.Element => {
     <>
       { isClient &&
         <a
-          href={props.link}
+          href={props.link.toString()}
           target="_blank"
           rel="noreferrer"
         >
