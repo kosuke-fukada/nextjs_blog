@@ -4,13 +4,15 @@ import { atelierHeathDark } from 'react-syntax-highlighter/dist/cjs/styles/hljs'
 import LinkCard from './LinkCard'
 import { isValidElement } from 'react'
 import remarkGfm from 'remark-gfm'
+import { Body as BodyType }  from '../../types/atoms/Body'
+import { Href } from '../../types/atoms/Href'
 
-const Body = (props: { body: string }): JSX.Element => {
+const Body = (props: { body: BodyType }): JSX.Element => {
 
   return (
     <div id='content'>
       <ReactMarkdown
-        children={props.body}
+        children={props.body.toString()}
         remarkPlugins={[remarkGfm]}
         components={{
           p({ children }) {
@@ -34,8 +36,13 @@ const Body = (props: { body: string }): JSX.Element => {
             }
           },
           a({ href }) {
+            if (!href) {
+              return (
+                <p></p>
+              )
+            }
             return (
-              <LinkCard link={href} />
+              <LinkCard link={new Href(href)} />
             )
           },
           code({ node, inline, className, children, style, ...props }) {

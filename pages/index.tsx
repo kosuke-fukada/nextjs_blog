@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Header from '../components/molecules/Header'
 import Post from '../components/organisms/Post'
 import styles from '../styles/Home.module.scss'
+import { Post as PostType } from '../types/organisms/Post'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -44,6 +45,17 @@ export default function Home() {
     'fugafuga',
   ]
 
+  const title = 'hogehoge'
+
+  const created = '2023-02-23 00:00:00'
+
+  const post = new PostType(
+    title,
+    tags,
+    body,
+    created
+  )
+
   return (
     <>
       <Head>
@@ -54,7 +66,7 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <Header />
-        <Post title='hogehoge' tags={tags} created={(new Date()).toDateString()} body={body} />
+        <Post post={post} />
       </main>
     </>
   )
