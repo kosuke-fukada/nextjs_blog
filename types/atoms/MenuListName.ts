@@ -1,4 +1,4 @@
-import StringBaseValue from "../StringBaseValue"
+import StringBaseValue from '../StringBaseValue'
 
 export class MenuListName extends StringBaseValue<'MenuListName'>
 {

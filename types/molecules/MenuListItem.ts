@@ -1,5 +1,5 @@
-import { InternalPath } from "../atoms/InternalPath"
-import { MenuListName } from "../atoms/MenuListName"
+import { InternalPath } from '../atoms/InternalPath'
+import { MenuListName } from '../atoms/MenuListName'
 
 export class MenuListItem
 {

@@ -1,6 +1,6 @@
-import { Created } from "../atoms/Created";
-import { Tag } from "../atoms/Tag";
-import { Title } from "../atoms/Title";
+import { Created } from '../atoms/Created';
+import { Tag } from '../atoms/Tag';
+import { Title } from '../atoms/Title';
 
 export class PostHead
 {

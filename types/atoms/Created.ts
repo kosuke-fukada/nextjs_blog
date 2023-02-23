@@ -1,4 +1,4 @@
-import DateBaseValue from "../DateBaseValue"
+import DateBaseValue from '../DateBaseValue'
 
 export class Created extends DateBaseValue<'Created'>
 {
