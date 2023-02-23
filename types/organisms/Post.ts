@@ -1,8 +1,8 @@
-import { Body } from "../atoms/Body";
-import { Created } from "../atoms/Created";
-import { Tag } from "../atoms/Tag";
-import { Title } from "../atoms/Title";
-import { PostHead } from "../molecules/PostHead";
+import { Body } from '../atoms/Body';
+import { Created } from '../atoms/Created';
+import { Tag } from '../atoms/Tag';
+import { Title } from '../atoms/Title';
+import { PostHead } from '../molecules/PostHead';
 
 export class Post
 {
