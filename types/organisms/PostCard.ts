@@ -10,20 +10,12 @@ export class PostCard
   readonly #href: InternalPath
 
   constructor(
-    title: string,
-    tags: Array<string>,
-    created: string,
-    href: string
+    postHead: PostHead,
+    href: InternalPath
   )
   {
-    this.#postHead = new PostHead(
-      new Title(title),
-      tags.map((tag: string) => {
-        return new Tag(tag)
-      }),
-      new Created(created)
-    )
-    this.#href = new InternalPath(href)
+    this.#postHead = postHead
+    this.#href = href
   }
 
   postHead(): PostHead
