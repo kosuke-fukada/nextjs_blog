@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { Href } from "../types/atoms/Href"
 import { Ogp } from "../types/hooks/useOgp/Ogp"
-import { propNames } from "../types/hooks/useOgp/Prop"
+import { isPreparedPropName } from "../types/hooks/useOgp/Prop"
 import { useClient } from "./useClient"
 
 export const useOgps = (href: Href) => {
@@ -17,20 +17,19 @@ export const useOgps = (href: Href) => {
       const html = new DOMParser().parseFromString(text, 'text/html')
       const headEls = html.head.children
       setOgps(Array.from(headEls).map(headEl => {
+        const content = headEl.getAttribute('content')
         const property = headEl.getAttribute('property')
-        if (!property || !propNames.includes(property.replace('og:', ''))) {
-          return new Ogp(
-            '',
-            ''
-          )
+        const prop = property ? property.replace('og:', '') : ''
+        if (!property || !isPreparedPropName(prop) || !content) {
+          return false
         }
         return new Ogp(
-          property.replace('og:', ''),
-          headEl.getAttribute('content') ?? '',
+          prop,
+          content,
         )
-      }).filter((ogp: Ogp): boolean => {
-        return !ogp.isEmpty()
-      }))
+      }).filter((item: Ogp|false): boolean => {
+        return item !== false
+      }) as Array<Ogp>)
     }
     getOgps()
   }, [href, isClient])

@@ -24,9 +24,4 @@ export class Ogp
   {
     return this.#content
   }
-
-  isEmpty(): boolean
-  {
-    return this.#prop.toString() === ''
-  }
 }
