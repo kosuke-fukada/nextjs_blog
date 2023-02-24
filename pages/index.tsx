@@ -6,11 +6,17 @@ import styles from '../styles/Home.module.scss'
 import { Post as PostType } from '../types/organisms/Post'
 import { PostCard } from '../components/organisms/PostCard'
 import { PostCard as PostCardType } from '../types/organisms/PostCard'
+import { PostHead } from '../types/molecules/PostHead'
+import { Title } from '../types/atoms/Title'
+import { Tag } from '../types/atoms/Tag'
+import { Created } from '../types/atoms/Created'
+import { Body } from '../types/atoms/Body'
+import { InternalPath } from '../types/atoms/InternalPath'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
-  const body = `
+  const body = new Body(`
   # h1
 
   ## h2
@@ -21,7 +27,7 @@ export default function Home() {
     * hoge
     * fuga
     * piyo
-  
+
   * strong
 
   **hogeeeee**
@@ -41,28 +47,32 @@ export default function Home() {
 
   console.log(hoge)
   ~~~
-  `
+  `)
 
   const tags = [
-    'fugafuga',
+    new Tag('fugafuga'),
   ]
 
-  const title = 'hogehoge'
+  const title = new Title('hogehoge')
 
-  const created = '2023-02-23 00:00:00'
+  const created = new Created('2023-02-23 00:00:00')
 
-  const post = new PostType(
+  const internalPath = new InternalPath('/hoge')
+
+  const postHead = new PostHead(
     title,
     tags,
-    body,
     created
   )
 
+  const post = new PostType(
+    postHead,
+    body
+  )
+
   const postCard = new PostCardType(
-    title,
-    tags,
-    created,
-    '/hoge'
+    postHead,
+    internalPath
   )
 
   return (
