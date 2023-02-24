@@ -8,7 +8,7 @@ export const useOgps = (href: Href) => {
   const [ogps, setOgps] = useState<Array<Ogp>>([])
   const isClient = useClient()
   useEffect(() => {
-    const getOgps = async () => {
+    const getOgps = async (): Promise<undefined | void> => {
       if (!href) {
         return
       }
@@ -16,7 +16,7 @@ export const useOgps = (href: Href) => {
       const text = await source.text()
       const html = new DOMParser().parseFromString(text, 'text/html')
       const headEls = html.head.children
-      setOgps(Array.from(headEls).map(headEl => {
+      setOgps(Array.from(headEls).map((headEl: Element): Ogp|false => {
         const content = headEl.getAttribute('content')
         const property = headEl.getAttribute('property')
         const prop = property ? property.replace('og:', '') : ''

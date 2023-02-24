@@ -7,7 +7,7 @@ import SideMenu from './SideMenu'
 import { MenuListItem } from '../../types/molecules/MenuListItem'
 
 const Header = (): JSX.Element => {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState<boolean>(false)
   const nodeRef = useRef(null)
   const menuList: Array<MenuListItem> = [
     new MenuListItem(

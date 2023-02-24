@@ -3,23 +3,24 @@ import styles from '../../styles/atoms/LinkCard.module.scss'
 import { Href } from '../../types/atoms/Href'
 import { useOgps } from '../../hooks/useOgps'
 import { useMemo } from 'react'
+import { Ogp } from '../../types/hooks/useOgp/Ogp'
 
 const LinkCard = (props: { href: Href }): JSX.Element => {
   const isClient = useClient()
   const ogps = useOgps(props.href)
 
-  const image = useMemo(() => {
-    return ogps.find(ogp => {
+  const image = useMemo<Ogp | undefined>(() => {
+    return ogps.find((ogp: Ogp): boolean => {
       return ogp.prop().toString() === 'image'
     })
   }, [ogps])
-  const title = useMemo(() => {
-    return ogps.find(ogp => {
+  const title = useMemo<Ogp | undefined>(() => {
+    return ogps.find((ogp: Ogp): boolean => {
       return ogp.prop().toString() === 'title'
     })
   }, [ogps])
-  const description = useMemo(() => {
-    return ogps.find(ogp => {
+  const description = useMemo<Ogp | undefined>(() => {
+    return ogps.find((ogp: Ogp): boolean => {
       return ogp.prop().toString() === 'description'
     })
   }, [ogps])
