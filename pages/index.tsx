@@ -4,6 +4,8 @@ import Header from '../components/molecules/Header'
 import Post from '../components/organisms/Post'
 import styles from '../styles/Home.module.scss'
 import { Post as PostType } from '../types/organisms/Post'
+import { PostCard } from '../components/organisms/PostCard'
+import { PostCard as PostCardType } from '../types/organisms/PostCard'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -56,6 +58,13 @@ export default function Home() {
     created
   )
 
+  const postCard = new PostCardType(
+    title,
+    tags,
+    created,
+    '/hoge'
+  )
+
   return (
     <>
       <Head>
@@ -67,6 +76,7 @@ export default function Home() {
       <main className={styles.main}>
         <Header />
         <Post post={post} />
+        <PostCard post={postCard} />
       </main>
     </>
   )
