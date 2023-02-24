@@ -1,0 +1,10 @@
+.post_card {
+  &_wrapper {
+    width: 300px;
+    margin: 1rem 0;
+    padding: 1rem;
+    border: 1px solid #ffffff94;
+    border-radius: 10px;
+    background-color: rgba($color: #1c01b7, $alpha: 0.3);
+  }
+}
