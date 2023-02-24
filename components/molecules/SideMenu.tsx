@@ -6,7 +6,7 @@ const SideMenu = (props: { menuList: Array<MenuListItem> }): JSX.Element => {
     <div className={styles.sidemenu}>
       <ul>
         {
-          props.menuList.map((item: MenuListItem, index: number) => {
+          props.menuList.map((item: MenuListItem, index: number): JSX.Element => {
             return (
               <li key={index}>
                 <a href={item.link.toString()}>

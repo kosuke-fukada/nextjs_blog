@@ -5,7 +5,7 @@ const Tags = (props: { tags: Array<Tag> }): JSX.Element => {
   return (
     <div>
       {
-        props.tags.map((tag: Tag, index: number) => {
+        props.tags.map((tag: Tag, index: number): JSX.Element => {
           return (
             <span className={styles.tag} key={index}>{ tag.toString() }</span>
           )
