@@ -8,6 +8,6 @@ export class Content extends StringBaseValue<'Content'>
   }
 
   protected isValid(value: string): boolean {
-    return true
+    return value.length > 0
   }
 }
