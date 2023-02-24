@@ -10,6 +10,6 @@ insert_final_newline = true
 # Set default charset
 charset = utf-8
 
-[*.{ts,tsx,js}]
+[*.{ts,tsx,js,css,scss}]
 indent_style = space
 indent_size = 2
